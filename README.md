@@ -110,3 +110,7 @@ GPL v3 - see [LICENSE](LICENSE) file.
 
 Windows port Copyright (C) 2024 pushingpandas.
 Original Copyright (C) 2013-2021 Filippo Scognamiglio.
+
+## Contact
+
+Windows port: A. Prior — [a.prior@pushingpandas.io](mailto:a.prior@pushingpandas.io) | [pushingpandas.io](https://pushingpandas.io)
