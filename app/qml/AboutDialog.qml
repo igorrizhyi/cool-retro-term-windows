@@ -102,8 +102,9 @@ ApplicationWindow {
                 color: palette.text
                 text: appSettings.version + "\n" + qsTr(
                           "Author: ") + "Filippo Scognamiglio\n" + qsTr(
+                          "Windows port: ") + "pushingpandas\n" + qsTr(
                           "Email: ") + "flscogna@gmail.com\n" + qsTr(
-                          "Source: ") + "https://github.com/Swordfish90/cool-retro-term\n"
+                          "Source: ") + "https://github.com/pushingpandas/cool-retro-term-windows\n"
             }
         }
     }
@@ -116,8 +117,9 @@ ApplicationWindow {
                 readOnly: true
                 wrapMode: TextEdit.Wrap
                 color: palette.text
-                text: "Copyright (c) 2013-2025 Filippo Scognamiglio <flscogna@gmail.com>\n\n"
-                      + "https://github.com/Swordfish90/cool-retro-term\n\n" +
+                text: "Copyright (c) 2013-2025 Filippo Scognamiglio <flscogna@gmail.com>\n"
+                      + "Windows port Copyright (c) 2024 pushingpandas\n\n"
+                      + "https://github.com/pushingpandas/cool-retro-term-windows\n\n" +
                       "cool-retro-term is free software: you can redistribute it and/or modify "
                       + "it under the terms of the GNU General Public License as published by "
                       + "the Free Software Foundation, either version 3 of the License, or "
