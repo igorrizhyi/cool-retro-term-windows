@@ -5,7 +5,7 @@
  * analogous to KPtyDevice for Unix PTYs. Uses background threads
  * for non-blocking I/O with Windows pipe handles.
  *
- * Copyright (C) 2024 cool-retro-term contributors
+ * Copyright (C) 2024 pushingpandas
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public

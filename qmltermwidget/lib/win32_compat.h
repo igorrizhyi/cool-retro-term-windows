@@ -4,6 +4,13 @@
  *
  * This file does NOT define POSIX I/O macros (lseek, read, write, close, etc.)
  * Those are handled locally in BlockArray.cpp where needed.
+ *
+ * Copyright (C) 2024 pushingpandas
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
  */
 
 #ifndef WIN32_COMPAT_H

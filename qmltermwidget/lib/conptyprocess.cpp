@@ -1,7 +1,7 @@
 /*
  * ConPtyProcess - Windows ConPTY process management implementation
  *
- * Copyright (C) 2024 cool-retro-term contributors
+ * Copyright (C) 2024 pushingpandas
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public

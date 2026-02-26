@@ -1,3 +1,6 @@
+@rem Build script for cool-retro-term Windows port
+@rem Copyright (C) 2024 pushingpandas
+@rem Licensed under GPL v3 - see LICENSE file
 call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
 set PATH=D:\Qt\6.8.3\msvc2022_64\bin;%PATH%
 cd /d D:\Coding\ClaudeCode\RetroTerminal\cool-retro-term
