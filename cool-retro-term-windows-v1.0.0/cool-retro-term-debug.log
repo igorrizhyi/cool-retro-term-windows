@@ -1,0 +1,336 @@
+22:53:58.554 DBG Using a variable-width font in the terminal.  This may cause performance degradation and display/alignment errors.
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "// Copyright (C) 2017 Jolla Ltd, author: <gunnar.sletta@jollamobile.com>"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "import QtQuick"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "import Qt5Compat.GraphicalEffects.private"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "import Qt5Compat.GraphicalEffects"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "Item {"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "id: root"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property variant source"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property real radius: Math.floor(samples / 2)"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property int samples: 9"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property color color: \"black\""
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property real horizontalOffset: 0"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property real verticalOffset: 0"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property real spread: 0.0"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property bool cached: false"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property bool transparentBorder: true"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "GaussianBlur {"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "id: blur"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "width: parent.width"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "height: parent.height"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "x: Math.round(horizontalOffset)"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "y: Math.round(verticalOffset)"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "source: root.source"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "radius: root.radius * Screen.devicePixelRatio"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "samples: root.samples * Screen.devicePixelRatio"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "_thickness: root.spread"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "transparentBorder: root.transparentBorder"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "_color: root.color;"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "_alphaOnly: true"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "// ignoreDevicePixelRatio: root.ignoreDevicePixelRatio"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "ShaderEffect {"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "x: blur._outputRect.x - parent.x"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "y: blur._outputRect.y - parent.y"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "width: transparentBorder ? blur._outputRect.width : blur.width"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "height: transparentBorder ? blur._outputRect.height : blur.height"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "property variant source: blur._output;"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "}"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "}"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "ShaderEffectSource {"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "id: cacheItem"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "x: -blur._kernelRadius + horizontalOffset"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "y: -blur._kernelRadius + verticalOffset"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "width: blur.width + 2 * blur._kernelRadius"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "height: blur.height + 2 * blur._kernelRadius"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "visible: root.cached"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "smooth: true"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "sourceRect: Qt.rect(-blur._kernelRadius, -blur._kernelRadius, width, height);"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "sourceItem: blur"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "hideSource: visible"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "}"
+22:53:58.559 DBG Line in keyboard translator file could not be understood: "}"
+22:53:58.560 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.560 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.561 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.562 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.563 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Foreground". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Background". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color0". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color1". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color2". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color3". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color4". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color5". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color6". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color7". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "ForegroundIntense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "BackgroundIntense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color0Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color1Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color2Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color3Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color4Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color5Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color6Intense". Fallback to black.
+22:53:58.564 WRN Invalid color value "" for "Color7Intense". Fallback to black.
+22:53:58.593 DBG Using a variable-width font in the terminal.  This may cause performance degradation and display/alignment errors.
+22:53:58.599 DBG ConPty::create() - pseudoconsole created successfully, size: 80 x 24
+22:53:58.599 DBG ConPtyDevice::open() - device opened successfully
+22:53:58.607 DBG ConPtyProcess: process created successfully, PID: 16464 command: "C:/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe"
