@@ -1,6 +1,0 @@
-00:16:03.796 DBG Using a variable-width font in the terminal.  This may cause performance degradation and display/alignment errors.
-00:16:03.836 DBG Using a variable-width font in the terminal.  This may cause performance degradation and display/alignment errors.
-00:16:03.842 DBG ConPty::create() - pseudoconsole created successfully, size: 80 x 24
-00:16:03.842 DBG ConPtyDevice::open() - device opened successfully
-00:16:03.849 DBG ConPtyProcess: process created successfully, PID: 30744 command: "C:/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe"
-00:16:18.706 DBG Using a variable-width font in the terminal.  This may cause performance degradation and display/alignment errors.

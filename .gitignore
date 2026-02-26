@@ -72,8 +72,11 @@ app/debug/
 aqtinstall.log
 *.qsb.bak
 
-# Windows deploy/release folders - override *.dll and *.exe rules above
+# Build artifacts
+*.zip
+*_output.txt
+
+# Windows deploy folder - override *.dll and *.exe rules above
 !deploy/
 !deploy/**
-!cool-retro-term-windows-v1.0.0/
-!cool-retro-term-windows-v1.0.0/**
+deploy/*.log
