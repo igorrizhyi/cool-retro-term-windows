@@ -22,7 +22,7 @@ import QtQuick.Controls 2.3
 
 MenuBar {
     id: defaultMenuBar
-    visible: appSettings.isMacOS || appSettings.showMenubar
+    visible: appSettings.isMacOS || appSettings.isWindows || appSettings.showMenubar
 
     Menu {
         title: qsTr("File")
