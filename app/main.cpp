@@ -182,7 +182,7 @@ int main(int argc, char *argv[])
     importPathList.append(QCoreApplication::applicationDirPath() + "/../PlugIns");
     importPathList.append(QCoreApplication::applicationDirPath() + "/../../../qmltermwidget");
 #if defined(Q_OS_WIN)
-    importPathList.append(QCoreApplication::applicationDirPath() + "/qt6/qml");
+    importPathList.append(QCoreApplication::applicationDirPath() + "/qml");
 #endif
     engine.setImportPathList(importPathList);
 
