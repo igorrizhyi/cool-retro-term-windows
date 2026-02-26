@@ -18,7 +18,7 @@ Settings such as colors, fonts, and effects can be accessed via the menu bar or 
 
 Grab the latest build from the [Releases](https://github.com/pushingpandas/cool-retro-term-windows/releases) page. Extract the zip and run `cool-retro-term.bat`.
 
-> After building from source, the executable is at `app\release\cool-retro-term.exe`. See [Building on Windows](#building-on-windows) below for deployment steps.
+> After building from source, the executable is at `app\release\cool-retro-term.exe` (created by `nmake`). The `app\release\` folder is only generated after a successful build. See [Building on Windows](#building-on-windows) below for full build and deployment steps.
 
 ## Screenshots
 ![Image](<https://i.imgur.com/TNumkDn.png>)
