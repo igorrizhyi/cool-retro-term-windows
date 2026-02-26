@@ -14,11 +14,15 @@ It uses the QML port of qtermwidget (Konsole) with a custom Windows ConPTY backe
 
 Settings such as colors, fonts, and effects can be accessed via the **menu bar** at the top and the **right-click context menu**. Both are available on Windows.
 
-## Download
+## Download & Run
 
-Grab the latest build from the [Releases](https://github.com/pushingpandas/cool-retro-term-windows/releases) page. Extract the zip and run `cool-retro-term.exe`.
+1. Download the latest `.zip` from the [Releases](https://github.com/pushingpandas/cool-retro-term-windows/releases) page
+2. Extract the zip to any folder
+3. Run `cool-retro-term.exe` from the extracted folder
 
-> After building from source, the executable is at `app\release\cool-retro-term.exe` (created by `nmake`). The `app\release\` folder is only generated after a successful build. See [Building on Windows](#building-on-windows) below for full build and deployment steps.
+The exe and all required Qt6 DLLs are in the same folder — no installation needed.
+
+> **Building from source?** After running `nmake`, the exe is at `app\release\cool-retro-term.exe`. See [Building on Windows](#building-on-windows) for full instructions.
 
 ## Screenshots
 ![Image](<https://i.imgur.com/TNumkDn.png>)
