@@ -103,6 +103,7 @@ ApplicationWindow {
                 text: appSettings.version + "\n" + qsTr(
                           "Author: ") + "Filippo Scognamiglio\n" + qsTr(
                           "Windows port: ") + "pushingpandas\n" + qsTr(
+                          "Website: ") + "https://pushingpandas.io\n" + qsTr(
                           "Email: ") + "flscogna@gmail.com\n" + qsTr(
                           "Source: ") + "https://github.com/pushingpandas/cool-retro-term-windows\n"
             }
