@@ -55,3 +55,20 @@ build
 .DS_Store
 *.app
 *.dmg
+
+# Windows
+
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+deploy/
+release/
+debug/
+app/release/
+app/debug/
+/qml/
+aqtinstall.log
+*.qsb.bak

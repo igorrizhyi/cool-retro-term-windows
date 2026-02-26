@@ -38,6 +38,7 @@ QtObject {
     readonly property real maxBurnInFadeTime: 1.6
 
     property bool isMacOS: Qt.platform.os === "osx"
+    property bool isWindows: Qt.platform.os === "windows"
 
     // GENERAL SETTINGS ///////////////////////////////////////////////////////
     property bool showMenubar: false

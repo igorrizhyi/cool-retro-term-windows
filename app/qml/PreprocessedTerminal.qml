@@ -178,6 +178,8 @@ Item{
             } else if (!defaultCmd && appSettings.isMacOS) {
                 // OSX Requires the following default parameters for auto login.
                 ksession.setArgs(["-i", "-l"]);
+            } else if (!defaultCmd && appSettings.isWindows) {
+                // Windows: no extra shell args needed
             }
 
             if (workdir)

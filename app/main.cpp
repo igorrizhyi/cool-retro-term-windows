@@ -17,6 +17,9 @@
 #include <stdlib.h>
 
 #include <QLoggingCategory>
+#include <QStandardPaths>
+#include <QFile>
+#include <QDateTime>
 
 #include <fileio.h>
 #include <fontlistmodel.h>
@@ -26,6 +29,30 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <QStyleFactory>
 #include <QMenu>
+#endif
+
+#if defined(Q_OS_WIN)
+#include <QStyleFactory>
+#include <QQuickWindow>
+#include <QSGRendererInterface>
+
+static QFile *s_logFile = nullptr;
+static void winMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    if (!s_logFile)
+        return;
+    QTextStream out(s_logFile);
+    out << QDateTime::currentDateTime().toString("hh:mm:ss.zzz ");
+    switch (type) {
+    case QtDebugMsg:    out << "DBG "; break;
+    case QtInfoMsg:     out << "INF "; break;
+    case QtWarningMsg:  out << "WRN "; break;
+    case QtCriticalMsg: out << "CRT "; break;
+    case QtFatalMsg:    out << "FTL "; break;
+    }
+    out << msg << "\n";
+    out.flush();
+}
 #endif
 
 QString getNamedArgument(QStringList args, QString name, QString defaultName)
@@ -41,6 +68,22 @@ QString getNamedArgument(QStringList args, QString name)
 
 int main(int argc, char *argv[])
 {
+#if defined(Q_OS_WIN)
+    // Force OpenGL rendering backend on Windows.
+    // D3D11's FXC shader compiler can't handle 4+ texture samplers
+    // with overlapping register semantics needed by the CRT effects.
+    QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGL);
+
+    // Set up file-based logging for Windows (GUI apps don't have a console)
+    {
+        QString logPath = QDir::currentPath() + "/cool-retro-term-debug.log";
+        s_logFile = new QFile(logPath);
+        if (s_logFile->open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+            qInstallMessageHandler(winMessageHandler);
+        }
+    }
+#endif
+
     // Some environmental variable are necessary on certain platforms.
     // Disable Connections slot warnings
     QLoggingCategory::setFilterRules("qt.qml.connections.warning=false");
@@ -59,6 +102,9 @@ int main(int argc, char *argv[])
     CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication);
 
     // Qt6 macOS default look is still lacking, so let's force Fusion for now
+    QQuickStyle::setStyle(QStringLiteral("Fusion"));
+#elif defined(Q_OS_WIN)
+    // Use Fusion style on Windows for a consistent look
     QQuickStyle::setStyle(QStringLiteral("Fusion"));
 #endif
 
@@ -104,13 +150,13 @@ int main(int argc, char *argv[])
     qmlRegisterType<FontManager>("CoolRetroTerm", 1, 0, "FontManager");
     qmlRegisterUncreatableType<FontListModel>("CoolRetroTerm", 1, 0, "FontListModel", "FontListModel is created by FontManager");
 
-#if !defined(Q_OS_MAC)
-    app.setWindowIcon(QIcon::fromTheme("cool-retro-term", QIcon(":../icons/32x32/cool-retro-term.png")));
-#if defined(Q_OS_LINUX)
-    QGuiApplication::setDesktopFileName(QStringLiteral("cool-retro-term"));
-#endif
-#else
+#if defined(Q_OS_MAC)
     app.setWindowIcon(QIcon(":../icons/32x32/cool-retro-term.png"));
+#elif defined(Q_OS_WIN)
+    app.setWindowIcon(QIcon(":../icons/32x32/cool-retro-term.png"));
+#else
+    app.setWindowIcon(QIcon::fromTheme("cool-retro-term", QIcon(":../icons/32x32/cool-retro-term.png")));
+    QGuiApplication::setDesktopFileName(QStringLiteral("cool-retro-term"));
 #endif
 
     // Manage command line arguments from the cpp side
@@ -130,11 +176,14 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("workdir", getNamedArgument(args, "--workdir", QDir::currentPath()));
     engine.rootContext()->setContextProperty("fileIO", &fileIO);
 
-    // Manage import paths for Linux and OSX.
+    // Manage import paths for QML plugins.
     QStringList importPathList = engine.importPathList();
     importPathList.append(QCoreApplication::applicationDirPath() + "/qmltermwidget");
     importPathList.append(QCoreApplication::applicationDirPath() + "/../PlugIns");
     importPathList.append(QCoreApplication::applicationDirPath() + "/../../../qmltermwidget");
+#if defined(Q_OS_WIN)
+    importPathList.append(QCoreApplication::applicationDirPath() + "/qml");
+#endif
     engine.setImportPathList(importPathList);
 
     engine.load(QUrl(QStringLiteral ("qrc:/main.qml")));
