@@ -14,6 +14,12 @@ It uses the QML port of qtermwidget (Konsole) with a custom Windows ConPTY backe
 
 Settings such as colors, fonts, and effects can be accessed via the menu bar or context menu (right-click).
 
+## Download
+
+Grab the latest build from the [Releases](https://github.com/pushingpandas/cool-retro-term-windows/releases) page. Extract the zip and run `cool-retro-term.bat`.
+
+> After building from source, the executable is at `app\release\cool-retro-term.exe`. See [Building on Windows](#building-on-windows) below for deployment steps.
+
 ## Screenshots
 ![Image](<https://i.imgur.com/TNumkDn.png>)
 ![Image](<https://i.imgur.com/hfjWOM4.png>)
