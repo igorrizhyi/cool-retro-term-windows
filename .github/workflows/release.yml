@@ -176,11 +176,21 @@ jobs:
           name: cool-retro-term-windows
           path: ./release
 
+      # Move the `rolling` tag to the current commit via the REST API rather than
+      # `git push -f`. A git push of the tag is scanned by GitHub's workflow-file
+      # protection and is rejected when the workflow files at the target differ
+      # from a branch (e.g. when two commits land close together) — the default
+      # GITHUB_TOKEN lacks the `workflows` scope. The git/refs API only repoints
+      # the tag at an already-pushed commit, so it isn't subject to that check.
       - name: Update rolling tag
         if: startsWith(github.ref, 'refs/heads/')
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git tag -f rolling
-          git push -f origin rolling
+          gh api -X PATCH "repos/${{ github.repository }}/git/refs/tags/rolling" \
+            -f sha="${{ github.sha }}" -F force=true \
+          || gh api -X POST "repos/${{ github.repository }}/git/refs" \
+            -f ref="refs/tags/rolling" -f sha="${{ github.sha }}"
 
       - name: Publish rolling release
         if: startsWith(github.ref, 'refs/heads/')
