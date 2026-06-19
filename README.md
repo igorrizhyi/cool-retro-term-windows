@@ -12,7 +12,7 @@ This is the **Windows 11 port** by [pushingpandas](https://github.com/pushingpan
 
 It uses the QML port of qtermwidget (Konsole) with a custom Windows ConPTY backend replacing the POSIX PTY layer.
 
-Settings such as colors, fonts, and effects can be accessed via the **menu bar** at the top and the **right-click context menu**. Both are available on Windows.
+Settings such as colors, fonts, and effects can be accessed via the **right-click context menu**.
 
 ## Download & Run
 
@@ -38,7 +38,7 @@ The exe and all required Qt6 DLLs are in the same folder — no installation nee
 - **OpenGL rendering**: Forces OpenGL backend since D3D11's FXC shader compiler can't handle the CRT effect shaders
 - **Shell detection**: Finds PowerShell Core (`pwsh`) > Windows PowerShell (`powershell`) > `cmd.exe`
 - **Consolas fallback font**: Uses Consolas as the monospace fallback on Windows
-- **Menu bar**: Always visible on Windows (File, Edit, View, Profiles, Help)
+- **Menu bar**: Disabled (header menu hidden; all settings accessible via right-click context menu)
 - **Shader compilation**: All 63 shader variants recompiled with HLSL 5.1 support
 
 ### Requirements
