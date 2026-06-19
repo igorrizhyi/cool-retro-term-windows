@@ -83,12 +83,76 @@ jobs:
           name: cool-retro-term-dmg
           path: ./release/*
 
+  build-windows:
+    name: Build (Windows, zip)
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.8.3'
+          host: windows
+          target: desktop
+          arch: win64_msvc2022_64
+          modules: qt5compat qtshadertools
+          cache: true
+
+      - name: Set up MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      # Shaders are embedded into the binary via app/qml/resources.qrc, so they
+      # must be (re)compiled BEFORE qmake/nmake embed them as Qt resources.
+      # qsb.exe is on PATH after jurplel/install-qt-action.
+      - name: Compile shaders
+        shell: cmd
+        run: call compile_shaders.bat || exit /b 1
+
+      # app.pro:    DESTDIR = $$OUT_PWD/../        -> cool-retro-term.exe at repo root
+      # qmltermwidget.pro: DESTDIR = $$OUT_PWD/QMLTermWidget
+      #   -> qmltermwidget\QMLTermWidget\qmltermwidget.dll (+ qmldir, scrollbar, schemes)
+      - name: Build
+        shell: cmd
+        run: |
+          qmake cool-retro-term.pro -spec win32-msvc CONFIG+=release || exit /b 1
+          nmake || exit /b 1
+
+      # The committed deploy/ folder is the verified release layout (full Qt 6.8.3
+      # runtime + plugins, flat layout with the QMLTermWidget plugin under qml/).
+      # We overlay the freshly built exe and terminal-widget DLL onto it rather than
+      # reconstructing the DLL set with windeployqt. NOTE: keep Qt pinned at 6.8.3 so
+      # the fresh binaries stay ABI-compatible with the committed deploy/ DLLs.
+      - name: Assemble deploy folder
+        shell: cmd
+        run: |
+          if not exist cool-retro-term.exe ( echo ERROR: cool-retro-term.exe not built & exit /b 1 )
+          if not exist qmltermwidget\QMLTermWidget\qmltermwidget.dll ( echo ERROR: qmltermwidget.dll not built & exit /b 1 )
+          xcopy /E /I /Y deploy deploy_out || exit /b 1
+          copy /Y cool-retro-term.exe deploy_out\ || exit /b 1
+          copy /Y qmltermwidget\QMLTermWidget\qmltermwidget.dll deploy_out\qml\QMLTermWidget\ || exit /b 1
+
+      - name: Package as zip
+        shell: pwsh
+        run: Compress-Archive -Path deploy_out\* -DestinationPath cool-retro-term-windows.zip -Force
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cool-retro-term-windows
+          path: cool-retro-term-windows.zip
+
   release:
     name: Create Release
     runs-on: ubuntu-22.04
     needs:
       - build-appimage
       - build-dmg
+      - build-windows
     steps:
       - uses: actions/checkout@v4
         with:
@@ -104,6 +168,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: cool-retro-term-dmg
+          path: ./release
+
+      - name: Download Windows zip
+        uses: actions/download-artifact@v4
+        with:
+          name: cool-retro-term-windows
           path: ./release
 
       - name: Update rolling tag
