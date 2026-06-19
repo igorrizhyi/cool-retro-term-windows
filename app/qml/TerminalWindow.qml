@@ -42,7 +42,7 @@ ApplicationWindow {
     property bool fullscreen: false
     onFullscreenChanged: visibility = (fullscreen ? Window.FullScreen : Window.Windowed)
 
-    menuBar: WindowMenu { }
+    menuBar: null
 
     property real normalizedWindowScale: 1024 / ((0.5 * width + 0.5 * height))
 

@@ -2,8 +2,8 @@
 @rem Copyright (C) 2024 pushingpandas
 @rem Licensed under GPL v3 - see LICENSE file
 @echo off
-set QSB=D:\Qt\6.8.3\msvc2022_64\bin\qsb.exe
-set SHADERS=D:\Coding\ClaudeCode\RetroTerminal\cool-retro-term\app\shaders
+set QSB=qsb
+set SHADERS=%~dp0app\shaders
 set OPTS=--glsl "100 es,120,150" --hlsl 51 --msl 12 --qt6
 
 echo Compiling dynamic shader variants...
